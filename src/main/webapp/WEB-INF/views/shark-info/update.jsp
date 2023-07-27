@@ -22,7 +22,7 @@
   </div>
   <div class="form-group">
     <label for="SHARK_BIRTH">SHARK_BIRTH</label>
-    <input type="text" class="form-control" id="SHARK_BIRTH" name="SHARK_BIRTH" placeholder="SHARK_BIRTH" value="${shark.SHARK_BIRTH}">
+    <input type="date" class="form-control" id="SHARK_BIRTH" name="SHARK_BIRTH" placeholder="SHARK_BIRTH" value="${shark.SHARK_BIRTH}">
   </div>
   <div class="form-group">
     <label for="SHARK_LENGTH">SHARK_LENGTH</label>
