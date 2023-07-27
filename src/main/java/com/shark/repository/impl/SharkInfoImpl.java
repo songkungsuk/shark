@@ -135,10 +135,11 @@ public class SharkInfoImpl implements SharkInfo {
 		sharkdata.put("SHARK_LENGTH", "2023");
 		
 //		System.out.println(sharkinfo.insertshark(sharkdata));
+//		System.out.println(sharkinfo.selectSharkById("redShark"));
 //		System.out.println(sharkinfo.updateshark(sharkdata));
 //		System.out.println(sharkinfo.deleteshark("4"));
-		System.out.println(sharkinfo.selectSharkList());
-		System.out.println(sharkinfo.selectShark("4"));
+//		System.out.println(sharkinfo.selectSharkList());
+//		System.out.println(sharkinfo.selectShark("4"));
 	}
 
 	@Override
@@ -166,4 +167,6 @@ public class SharkInfoImpl implements SharkInfo {
 		}
 		return null;
 	}
+	
+	
 }

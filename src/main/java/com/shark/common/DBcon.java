@@ -14,7 +14,6 @@ public class DBcon {
 		try {
 			Class.forName(DRIVER_NAME);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -25,7 +24,6 @@ public class DBcon {
 			Connection con = DriverManager.getConnection(URL, ID, PW);
 			return con;
 		} catch (Exception e) {
-			// TODO: handle exception
 		}
 		
 		return null;
