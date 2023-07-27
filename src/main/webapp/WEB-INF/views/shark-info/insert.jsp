@@ -30,6 +30,7 @@
   </div>
   	<button class="btn btn-primary">상어를 수조에 넣기</button>
 </form>
+<h2>${shark}</h2>
 </div>
 </body>
 </html>

@@ -30,6 +30,7 @@
   </div>
   	<button class="btn btn-primary">상어수정</button>
 </form>
+<h2>${shark}</h2>
 </div>
 </body>
 </html>
