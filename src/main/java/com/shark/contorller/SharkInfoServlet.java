@@ -88,6 +88,7 @@ public class SharkInfoServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			boolean login = sharkInfo.login(shark, session);
 			if(login) {
+				session.setAttribute("shark", sharkInfo.selectShark(shark.get("SHARK_NAME")));
 				request.setAttribute("msg", "물속으로 들어갔습니다.");
 				request.setAttribute("url","/shark-info/list");
 			}
