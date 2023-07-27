@@ -5,12 +5,26 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="/WEB-INF/views/common/header.jsp" />
 </head>
 <body>
-	<form action="/shark-info/login" method="post">
-		<input type="text" name="SHARK_NAME" placeholder="상어이름"> <br> 
-		<input type="text" name="SHARK_LENGTH" placeholder="상어길이"> <br>
-		<button>물속으로 들어가기</button>
-	</form>
+	<div class="container">
+		<form action="/shark-info/login" method="post">
+			<div class="form-group">
+				<label for="SHARK_NAME">SHARK_NAME</label> <input type="text"
+					class="form-control" id="SHARK_NAME" name="SHARK_NAME"
+					placeholder="SHARK_NAME">
+			</div>
+			<div class="form-group">
+				<label for="SHARK_LENGTH">SHARK_LENGTH</label> <input type="text"
+					class="form-control" id="SHARK_LENGTH" name="SHARK_LENGTH"
+					placeholder="SHARK_LENGTH">
+					
+					<br>
+				<button class="btn btn-primary btn-lg btn-block">물속으로 들어가기</button>
+			</div>
+
+		</form>
+	</div>
 </body>
 </html>
