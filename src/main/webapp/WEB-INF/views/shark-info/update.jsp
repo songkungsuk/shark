@@ -5,16 +5,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<jsp:include page="/WEB-INF/views/common/header.jsp" />
 </head>
 <body>
+<div class="container">
 <h1>update Page</h1>
 <form action="/shark-info/update" method="post">
 	<input type="hidden" name="SHARK_NUM" value="${shark.SHARK_NUM}">
-	<input type="text" name="SHARK_NAME" placeholder="상어이름" value="${shark.SHARK_NAME}">
-	<input type="text" name="SHARK_AGE" placeholder="상어나이" value="${shark.SHARK_AGE}">
-	<input type="text" name="SHARK_BIRTH" placeholder="상어생일" value="${shark.SHARK_BIRTH}">
-	<input type="text" name="SHARK_LENGTH" placeholder="상어길이" value="${shark.SHARK_LENGTH}">
-	<button>추가하기</button>
+  <div class="form-group">
+    <label for="SHARK_NAME">SHARK_NAME</label>
+    <input type="text" class="form-control" id="SHARK_NAME" name="SHARK_NAME" placeholder="SHARK_NAME" value="${shark.SHARK_NAME}">
+  </div>
+  <div class="form-group">
+    <label for="SHARK_AGE">SHARK_AGE</label>
+    <input type="text" class="form-control" id="SHARK_AGE" name="SHARK_AGE" placeholder="SHARK_AGE" value="${shark.SHARK_AGE}">
+  </div>
+  <div class="form-group">
+    <label for="SHARK_BIRTH">SHARK_BIRTH</label>
+    <input type="text" class="form-control" id="SHARK_BIRTH" name="SHARK_BIRTH" placeholder="SHARK_BIRTH" value="${shark.SHARK_BIRTH}">
+  </div>
+  <div class="form-group">
+    <label for="SHARK_LENGTH">SHARK_LENGTH</label>
+    <input type="text" class="form-control" id="SHARK_LENGTH" name="SHARK_LENGTH" placeholder="SHARK_LENGTH" value="${shark.SHARK_LENGTH}">
+  </div>
+  	<button class="btn btn-primary">상어수정</button>
 </form>
+</div>
 </body>
 </html>
