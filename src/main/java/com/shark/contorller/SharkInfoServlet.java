@@ -1,6 +1,7 @@
 	package com.shark.contorller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
 import com.shark.common.CommonView;
 import com.shark.service.SharkInfoService;
 import com.shark.service.Impl.SharkInfoServiceImpl;
@@ -19,29 +21,28 @@ import com.shark.service.Impl.SharkInfoServiceImpl;
 public class SharkInfoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	SharkInfoService sharkInfo = new SharkInfoServiceImpl();
-
+	Gson gson = new Gson();
+	
 	public SharkInfoServlet() {
 		System.out.println("아기상어 아빠상어 엄마상어");
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String cmd = CommonView.getcmd(request);
-		System.out.println(cmd);
+
 		String uri = CommonView.sliceURI(request);
+		String json = "";
+		
 		System.out.println(uri);
 
 		if (uri.equals("list")) {
-			request.setAttribute("sharkList", sharkInfo.selectSharkList());
-		} else if (uri.equals("view")) {
-			String sharkNum = request.getParameter("SHARK_NUM");
-			request.setAttribute("shark", sharkInfo.selectShark(sharkNum));
-		} else if (uri.equals("update")) {
-			String sharkNum = request.getParameter("sharkNum");
-			request.setAttribute("shark", sharkInfo.selectShark(sharkNum));
+			json = gson.toJson(sharkInfo.selectSharkList(null));
 		}
+		PrintWriter out = response.getWriter();
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("application/json; charset=UTF-8");
+		out.print(json);
 
-		CommonView.foward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

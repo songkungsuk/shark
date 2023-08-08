@@ -5,8 +5,10 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import com.shark.vo.SharkInfoVO;
+
 public interface SharkInfoService {
-	List<Map<String, String>> selectSharkList();
+	List<SharkInfoVO> selectSharkList(SharkInfoVO shark);
 	
 	Map<String, String> selectShark(String sharkNum);
 	

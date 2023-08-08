@@ -5,15 +5,27 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
+
+import com.shark.common.MybatisSessionFactory;
+import com.shark.mapper.SharkInfoMapper;
 import com.shark.repository.SharkInfo;
 import com.shark.repository.impl.SharkInfoImpl;
+import com.shark.vo.SharkInfoVO;
 
 public class SharkInfoServiceImpl implements com.shark.service.SharkInfoService {
 	SharkInfo sharks = new SharkInfoImpl();
+	SqlSessionFactory ssf = MybatisSessionFactory.getSqlSessionFactory();
 	@Override
-	public List<Map<String, String>> selectSharkList() {
+	public List<SharkInfoVO> selectSharkList(SharkInfoVO shark) {
+		try (SqlSession session = ssf.openSession()){
+			SharkInfoMapper siMapper = session.getMapper(SharkInfoMapper.class);
+			return siMapper.getSharkInfos(null);
+		} catch (Exception e) {
+			throw e;
+		}
 		
-		return sharks.selectSharkList();
 	}
 
 	@Override
